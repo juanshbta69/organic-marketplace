@@ -289,7 +289,7 @@ def es_oferta_semana(oferta):
     fecha_fin = fecha_inicio + datetime.timedelta(6)
     # print '*** Fecha fin: ' + str(fecha_fin)
     # print '*** Estado de la oferta: ' + oferta.estado
-    if oferta.estado == 'Aprobada' and fecha_inicio <= fecha_actual <= fecha_fin:
+    if oferta.estado == 'aceptada' and fecha_inicio <= fecha_actual <= fecha_fin:
         oferta_semana = True
     else:
         oferta_semana = False
