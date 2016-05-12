@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="organicApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../www/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../www/assets/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../www/assets/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../www/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular-route.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    <script src="../www/app.js"></script>
+    <script src="../www/modulos/admin/admin.mod.js"></script>
+    <script src="../www/modulos/admin/admin.svc.js"></script>
+    <script src="../www/modulos/admin/admin.ctrl.js"></script>
+    <script src="../www/modulos/ofertasAdmin/ofertasAdmin.mod.js"></script>
+    <script src="../www/modulos/ofertasAdmin/ofertasAdmin.svc.js"></script>
+    <script src="../www/modulos/ofertasAdmin/ofertasAdmin.ctrl.js"></script>
+    <script src="../www/modulos/proveedor/provider.mod.js"></script>
+    <script src="../www/modulos/proveedor/provider.svc.js"></script>
+    <script src="../www/modulos/proveedor/provider.ctrl.js"></script>
+    <script src="../www/modulos/registroProveedor/registroProveedor.mod.js"></script>
+    <script src="../www/modulos/registroProveedor/registroProveedor.svc.js"></script>
+    <script src="../www/modulos/registroProveedor/registroProveedor.ctrl.js"></script>
+    <script src="../www/modulos/categorias/categoria.mod.js"></script>
+    <script src="../www/modulos/categorias/categoria.svc.js"></script>
+    <script src="../www/modulos/categorias/categoria.ctrl.js"></script>
+    <script src="../www/modulos/producto/crearProducto.mod.js"></script>
+    <script src="../www/modulos/producto/crearProducto.svc.js"></script>
+    <script src="../www/modulos/producto/crearProducto.ctrl.js"></script>
+    <script src="../www/modulos/producto/productos.mod.js"></script>
+    <script src="../www/modulos/producto/productos.svc.js"></script>
+    <script src="../www/modulos/producto/productos.ctrl.js"></script>
+    <script src="../www/modulos/producto/editarProducto.mod.js"></script>
+    <script src="../www/modulos/producto/editarProducto.svc.js"></script>
+    <script src="../www/modulos/producto/editarProducto.ctrl.js"></script>
+    <script src="../www/modulos/diasEntregaAdmin/diasEntregaAdmin.mod.js"></script>
+    <script src="../www/modulos/diasEntregaAdmin/diasEntregaAdmin.svc.js"></script>
+    <script src="../www/modulos/diasEntregaAdmin/diasEntregaAdmin.ctrl.js"></script>
+    <script src="../www/modulos/comprasAdmin/comprasAdmin.mod.js"></script>
+    <script src="../www/modulos/comprasAdmin/comprasAdmin.svc.js"></script>
+    <script src="../www/modulos/comprasAdmin/comprasAdmin.ctrl.js"></script>
+    <script src="../www/modulos/mercadoTipo/mercadoTipo.mod.js"></script>
+    <script src="../www/modulos/mercadoTipo/mercadoTipo.svc.js"></script>
+    <script src="../www/modulos/mercadoTipo/mercadoTipo.ctrl.js"></script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/principal">Administración</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu message-dropdown">
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-footer">
+                        <a href="#">Read All New Messages</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu alert-dropdown">
+                    <li>
+                        <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">View All</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown" ng-controller="adminCtrl as ctrl">
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <label
+                        id="nombreAdmin"></label> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#" ng-click="logout();"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a href="#/principal"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#/productores"><i class="glyphicon glyphicon-leaf"></i> Productores</a>
+                </li>
+                <li>
+                    <a href="#/ofertas"><i class="glyphicon glyphicon-usd"></i> Ofertas</a>
+                </li>
+                <li>
+                    <a href="#/registro"><i class="glyphicon glyphicon-plus"></i> Registrar productor</a>
+                </li>
+                <li>
+                    <a href="#/categorias"><i class="glyphicon glyphicon-list"></i> Categorias</a>
+                </li>
+                <li>
+                    <a href="#/productos"><i class="glyphicon glyphicon-apple"></i> Productos</a>
+                </li>
+                <li>
+                    <a href="#/diasEntrega"><i class="glyphicon glyphicon-calendar"></i> Días entrega</a>
+                </li>
+                <li>
+                    <a href="#/compras"><i class="glyphicon glyphicon-shopping-cart"></i> Pedidos</a>
+                </li>
+                <li>
+                    <a href="#/mercado_tipo"><i class="glyphicon glyphicon-shopping-cart"></i> Mercado Tipo</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div ng-view></div>
+    <!-- /#page-wrapper -->
+
+</div>
+</body>
+
+</html>

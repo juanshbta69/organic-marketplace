@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="organicApp">
+<head>
+    <title>Proveedor</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular-route.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../www/assets/css/css.css"/>
+
+    <script src="../www/appProductor.js"></script>
+    <script src="../www/modulos/admin/admin.mod.js"></script>
+    <script src="../www/modulos/admin/admin.svc.js"></script>
+    <script src="../www/modulos/admin/admin.ctrl.js"></script>
+    <script src="../www/modulos/ofertasAdmin/ofertasAdmin.mod.js"></script>
+    <script src="../www/modulos/ofertasAdmin/ofertasAdmin.svc.js"></script>
+    <script src="../www/modulos/ofertasAdmin/ofertasAdmin.ctrl.js"></script>
+    <script src="../www/modulos/proveedor/provider.mod.js"></script>
+    <script src="../www/modulos/proveedor/provider.svc.js"></script>
+    <script src="../www/modulos/proveedor/provider.ctrl.js"></script>
+    <script src="../www/modulos/registroProveedor/registroProveedor.mod.js"></script>
+    <script src="../www/modulos/registroProveedor/registroProveedor.svc.js"></script>
+    <script src="../www/modulos/registroProveedor/registroProveedor.ctrl.js"></script>
+    <script src="../www/modulos/producto/crearProducto.mod.js"></script>
+    <script src="../www/modulos/producto/crearProducto.svc.js"></script>
+    <script src="../www/modulos/producto/crearProducto.ctrl.js"></script>
+    <script src="../www/modulos/producto/productos.mod.js"></script>
+    <script src="../www/modulos/producto/productos.svc.js"></script>
+    <script src="../www/modulos/producto/productos.ctrl.js"></script>
+    <script src="../www/modulos/producto/editarProducto.mod.js"></script>
+    <script src="../www/modulos/producto/editarProducto.svc.js"></script>
+    <script src="../www/modulos/producto/editarProducto.ctrl.js"></script>
+    <script src="../www/modulos/mercadoTipo/mercadoTipo.mod.js"></script>
+    <script src="../www/modulos/mercadoTipo/mercadoTipo.svc.js"></script>
+    <script src="../www/modulos/mercadoTipo/mercadoTipo.ctrl.js"></script>
+</head>
+<body class="body">
+<br>
+<br>
+<br>
+<div class="row" ng-controller="providerCtrl as ctrl">
+    <div class="col-md-2 col-md-offset-5">
+        <h1 style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Proveedor</h1>
+        <hr/>
+        <form>
+            <input type="text" id="username" class="form-control" placeholder="Usuario" ng-model="userForm.username"
+                   required><br>
+            <input type="password" id="password" class="form-control" placeholder="Contraseña"
+                   ng-model="userForm.password" required><br>
+            <input type="submit" value="Ingresar" class="btn btn-success" ng-click="ctrl.logIn()" id="ingresar"><br>
+            <label ng-if="errorLogin" style="color:red">Datos incorrectos</label>
+        </form>
+    </div>
+</div>
+</body>
+</html>

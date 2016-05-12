@@ -1,0 +1,51 @@
+<div id="page-wrapper">
+<div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Productores
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="glyphicon glyphicon-leaf"></i> Productores
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+    <div class="row" ng-controller="adminCtrl as ctrl" data-ng-init="getProductores()">
+            <div class="col-md-6 col-sm-6 col-md-offset-0 col-sm-offset-0">
+                <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="buscar" placeholder="Buscar" ng-keyup="buscarProductores()"/>
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+                <table class="table table-striped" ng->
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Nombre</td>
+                        <td>Productos</td>
+                        <td>Editar</td>
+                        <td>Eliminar</td>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in productores ">
+                        <td>{{$index + 1}}</td>
+                        <td>{{item.usuarioId__first_name}} {{item.usuarioId__last_name}}</td>
+                        <td><img ng-click="agregarProductos(item);" src="../../www/images/producto.png" style="cursor: pointer"></td>
+                        <td><img ng-click="editarConcurso(item.id);" src="../../www/images/editar.png" style="cursor: pointer"></td>
+                        <td><img ng-click="eliminarConcurso(item.id);" src="../../www/images/x.png" style="cursor: pointer"></td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+</div>
+
+
+</div>

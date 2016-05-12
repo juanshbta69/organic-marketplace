@@ -1,0 +1,52 @@
+<div class = "panel panel-default">
+           <div class = "panel-heading">Ofertas</div>
+      <div class="container"  ng-init="ctrl.getOffers()">
+        <div ng-repeat="record in offers">
+           <table class = "table">
+                   <table class="table table-striped table-bordered responsive">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Productor</th>
+                                <th>Disponible Venta</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ record.producto__nombre }}</td>
+                                <td class="center">{{ record.cantidad }}</td>
+                                <td class="center">{{ record.productor__descripcion }}</td>
+                                <td>{{ disponibleVenta(record.fecha) }}</td>
+                                <td ng-if="record.estado == 'creada'" class="center">
+                                    <span class="label-warning label label-default">Creada</span>
+                                </td>
+                                <td ng-if="record.estado == 'aceptada'" class="center">
+                                    <span class="label-success label label-default">Aceptada</span>
+                                </td>
+                                 <td ng-if="record.estado == 'cancelada'" class="center">
+                                    <span class="label-danger label label-default">Cancelada</span>
+                                </td>
+                                <td class="center">
+                                    <a class="btn btn-success" ng-click="ctrl.acceptOffer(record)">
+                                        <i class="glyphicon glyphicon-check icon-white"></i>
+                                    Aceptar
+                                    </a>
+                                    <a class="btn btn-info" href="#">
+                                        <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                    Detalle
+                                    </a>
+                                    <a class="btn btn-danger" ng-click="ctrl.cancelOffer(record)">
+                                        <i class="glyphicon glyphicon-trash icon-white"></i>
+                                    Cancelar
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+             </table>
+        </div>
+    </div>
+</div>

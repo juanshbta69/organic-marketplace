@@ -1,0 +1,52 @@
+<div class = "panel panel-default">
+  <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Productos
+                        </h1>
+                          <a class="btn btn-success" href="#/crearProducto">
+                                        <i class="glyphicon glyphicon-check icon-white"></i>
+                                    Crear Producto
+                          </a>
+                    </div>
+                </div>      <div class="container"  ng-init="ctrl.getOffers()">
+
+            <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div ng-init="ctrl.getOffers()" ng-controller="productoCtrl as ctrl">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Cantidad Mínima</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in offers">
+                            <td>{{ item.fields.nombre }}</td>
+                            <td>{{ item.fields.descripcion }}</td>
+                            <td>{{ item.fields.cantidadMinima }}</td>
+                            <td>
+                                <a class="btn btn-info editar_link" href="#/edit/{{ item.pk }}">
+                                    <i class="glyphicon glyphicon-edit icon-white"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" ng-click="ctrl.deleteProduct(item.pk)">
+                                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

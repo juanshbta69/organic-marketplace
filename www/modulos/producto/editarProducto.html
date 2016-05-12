@@ -1,0 +1,52 @@
+
+<div class="container" ng-controller="crearProductoCtrl as ctrl">
+
+<div id="page-wrapper">
+<div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Editar Producto
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="glyphicon glyphicon-bitcoin"></i> Producto
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+<div  ng-controller="editarProductoCtrl as ctrl" ng-init="ctrl.getProduct()">
+
+                <div class="alert alert-success" ng-if="success === 'OK'">
+                    Exito
+                </div>
+
+                <div class="alert alert-danger" ng-if="success === 'ERROR'">
+                    Error
+                </div>
+                    <div class="form-group">
+                        <label class="control-label" for="image">Cantidad Mínima:</label>
+                        <input ng-model="projects.fields.cantidadMinima" type="url" id="cantidadMinima" name="cantidadMinima" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Nombre Producto:</label>
+                        <input ng-model="projects.fields.nombre" type="text" id="name" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="description">Descripción:</label>
+                        <input ng-model="projects.fields.descripcion" type="text" id="name" name="name" class="form-control">
+                    </div>
+                        <a href="#/productos" class="btn btn-default">Volver</a>
+                    <button type="submit" class="btn btn-primary" ng-click="ctrl.editProject(projects)">Actualizar</button>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+</div>

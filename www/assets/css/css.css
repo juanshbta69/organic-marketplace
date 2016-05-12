@@ -1,0 +1,9 @@
+.body {
+		background-image: url("../../images/header.jpg");
+		background-size: cover;
+		background-position: center center;
+		background-attachment: fixed;
+		text-align: center;
+		cursor: default;
+	}
+

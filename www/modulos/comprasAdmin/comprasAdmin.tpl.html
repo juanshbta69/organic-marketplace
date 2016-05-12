@@ -1,0 +1,49 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <div id="mensajeInfo" class="alert alert-info" hidden>
+        </div>
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Pedidos
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Pedidos
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row" ng-controller="purchaseAdminCtrl as ctrl" data-ng-init="getPurchases()">
+            <div class="col-md-12 col-sm-6 col-md-offset-0 col-sm-offset-0">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td align="center">#</td>
+                        <td align="center">Id</td>
+                        <td align="center">Fecha</td>
+                        <td align="center">Total</td>
+                        <td align="center">Estado</td>
+                        <td align="center">Ver detalle</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in purchases">
+                        <td align="center">{{ $index + 1 }}</td>
+                        <td align="right">{{ item.pk }}</td>
+                        <td align="center">{{ item.fecha }}</td>
+                        <td align="right">$ {{ item.totalCompra }}</td>
+                        <td>{{ item.estado }}</td>
+                        <td align="center"><img ng-click="goToPurchaseDetail(item.pk)" src="../../www/images/ver.png" style="cursor: pointer"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

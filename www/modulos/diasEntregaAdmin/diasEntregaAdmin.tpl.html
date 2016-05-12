@@ -1,0 +1,89 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Días entrega
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="glyphicon glyphicon-calendar"></i> Dias entrega actuales
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row" ng-controller="deliveryDaysAdminCtrl as ctrl" data-ng-init="getDiasEntrega()">
+            <div class="col-md-6 col-sm-6 col-md-offset-0 col-sm-offset-0">
+                <table class="table table-striped" ng->
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Número día</td>
+                        <td>Día semana</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in diasEntregaActuales ">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ item.numDia }}</td>
+                        <td>{{ item.diaSemana }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="glyphicon glyphicon-calendar"></i> Actualizar días de entrega
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="mensajeExito" class="alert alert-success" hidden>
+        </div>
+        <div id="mensajeAdvertencia" class="alert alert-warning" hidden>
+        </div>
+        <div id="mensajeError" class="alert alert-danger" hidden>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-md-offset-0 col-sm-offset-0">
+                <label for="mySelect">Seleccione los días de entrega de pedidos: </label><br>
+                <select ng-options="opcion.diaSemana for opcion in diasEntrega.semana track by opcion.numDia"
+                        ng-model="diasEntrega.diasSeleccionados" style="width: 100px; height: 125px"
+                        multiple></select><br><br>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#confirmacion">
+                    <span class="glyphicon glyphicon-refresh"></span> Actualizar
+                </button>
+            </div>
+        </div>
+
+        <div id="confirmacion" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Confirmación</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>Esta seguro que desea actualizar los días de entrega de pedidos?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" ng-click="actualizarDiasEntrega()"
+                                data-dismiss="modal">Si <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No <span
+                                class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

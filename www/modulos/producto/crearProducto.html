@@ -1,0 +1,63 @@
+<script>
+    $("#imageFile").change(function() {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var binaryString = this.result;
+            console.log(binaryString);
+            document.getElementById("fileString").value = window.btoa(binaryString);
+        }
+    reader.readAsBinaryString(this.files[0]);
+    });
+</script>
+
+<div class="container" ng-controller="crearProductoCtrl as ctrl">
+
+<div id="page-wrapper">
+<div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Crear Producto
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="glyphicon glyphicon-bitcoin"></i> Unidad Medida
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+   <input id="unitName" name="unitName" type="text" placeholder="nombre unidad medida ej. gramo" class="form-control input-md" required="">
+            <input id="unitAb" name="unitAb" type="text" placeholder="unidad ej gr" class="form-control input-md" required="">
+
+
+    <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="glyphicon glyphicon-apple"></i> Producto
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+<input id="name" name="name" type="text" placeholder="Nombre de producto" class="form-control input-md" required="">
+            <input id="description" name="description" type="text" placeholder="Descripción del producto" class="form-control input-md" required="">
+            <input id="minimum" name="minimum" type="number" placeholder="cantidad mínima" class="form-control input-md" required="">
+            <input id="imageFile" name="file" type="file" required="">
+            <input id="fileString" name="fileString" type="text" class="form-control input-md" readonly>
+            <button class="btn btn-primary" ng-click="ctrl.createDesign()">Guardar</button>
+
+
+
+
+</div>
+
+
+</div>
+</div>
