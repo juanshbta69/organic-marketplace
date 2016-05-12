@@ -6,7 +6,6 @@ from copy import deepcopy
 
 from django.contrib.auth import authenticate, login, logout
 from django.core.cache import cache
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -232,10 +231,12 @@ def registrar_compra(user, productos, items_compra, total_compra):
             "status": "OK",
             "message": "Confirmada la compra."
         }
-    except ObjectDoesNotExist:
+    except Exception as e:
+        print "Error: {0}".format(e.message)
+
         respuesta = {
             "status": "ERROR",
-            "message": "Ocurrio un error, puede que el usuario logueado no sea un Consumidor."
+            "message": "Ocurrio un erroral registrar la compra."
         }
 
     return respuesta
