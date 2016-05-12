@@ -6,6 +6,7 @@ from copy import deepcopy
 
 from django.contrib.auth import authenticate, login, logout
 from django.core.cache import cache
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -205,31 +206,37 @@ def productos_comprados(request):
 def registrar_compra(user, productos, items_compra, total_compra):
     print 'Usuario que va a registrar la compra: [' + str(user.pk) + ', ' + user.username + ']'
 
-    consumidor = Consumidor.objects.get(usuarioId=user.pk)
-    compra = Compra()
-    compra.consumidor = consumidor
-    compra.totalCompra = total_compra
-    compra.estado = "Pendiente entrega"
-    compra.save()
+    try:
+        consumidor = Consumidor.objects.get(usuarioId=user.pk)
+        compra = Compra()
+        compra.consumidor = consumidor
+        compra.totalCompra = total_compra
+        compra.estado = "Pendiente entrega"
+        compra.save()
 
-    for item_compra in items_compra:
-        if item_compra['cantidad'] > 0:
-            compra_producto = Compra_Producto()
-            compra_producto.compra = compra
-            producto_comprado = Producto.objects.get(pk=item_compra['producto'])
-            compra_producto.producto = producto_comprado
-            compra_producto.cantidad = item_compra['cantidad']
-            compra_producto.valor = item_compra['valor']
-            compra_producto.save()
+        for item_compra in items_compra:
+            if item_compra['cantidad'] > 0:
+                compra_producto = Compra_Producto()
+                compra_producto.compra = compra
+                producto_comprado = Producto.objects.get(pk=item_compra['producto'])
+                compra_producto.producto = producto_comprado
+                compra_producto.cantidad = item_compra['cantidad']
+                compra_producto.valor = item_compra['valor']
+                compra_producto.save()
 
-    global productos_semana
-    productos_semana = productos
-    cache.delete(user.username)
+        global productos_semana
+        productos_semana = productos
+        cache.delete(user.username)
 
-    respuesta = {
-        "status": "OK",
-        "message": "Confirmada la compra."
-    }
+        respuesta = {
+            "status": "OK",
+            "message": "Confirmada la compra."
+        }
+    except ObjectDoesNotExist:
+        respuesta = {
+            "status": "ERROR",
+            "message": "Ocurrio un error, puede que el usuario logueado no sea un Consumidor."
+        }
 
     return respuesta
 
